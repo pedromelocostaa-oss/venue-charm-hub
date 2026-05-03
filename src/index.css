@@ -2,108 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 @layer base {
   :root {
-    --background: 30 25% 8%;
-    --foreground: 38 40% 92%;
-
-    --card: 30 20% 12%;
-    --card-foreground: 38 40% 92%;
-
-    --popover: 30 20% 12%;
-    --popover-foreground: 38 40% 92%;
-
-    --primary: 38 65% 58%;
-    --primary-foreground: 30 25% 8%;
-
-    --secondary: 30 15% 18%;
-    --secondary-foreground: 38 40% 92%;
-
-    --muted: 30 15% 16%;
-    --muted-foreground: 38 15% 65%;
-
-    --accent: 38 80% 65%;
-    --accent-foreground: 30 25% 8%;
-
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 38 40% 92%;
-
-    --border: 30 15% 20%;
-    --input: 30 15% 18%;
-    --ring: 38 65% 58%;
-
-    --radius: 0.25rem;
-
-    --gold: 38 65% 58%;
-    --gold-light: 42 80% 72%;
-    --gold-deep: 32 55% 42%;
-
-    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-deep)), hsl(var(--gold)) 50%, hsl(var(--gold-light)));
-    --gradient-dark: linear-gradient(180deg, hsl(30 25% 8% / 0.4), hsl(30 25% 5% / 0.95));
-    --gradient-radial: radial-gradient(ellipse at center, hsl(38 65% 58% / 0.15), transparent 70%);
-
-    --shadow-gold: 0 20px 60px -20px hsl(var(--gold) / 0.4);
-    --shadow-elegant: 0 30px 80px -30px hsl(0 0% 0% / 0.6);
-
-    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-    font-feature-settings: 'ss01', 'cv01';
+    @apply bg-white text-gray-800;
+    font-family: "Lato", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, .display {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-  }
+  h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; }
 }
 
 @layer utilities {
-  .text-gold {
-    color: hsl(var(--gold));
-  }
-  .bg-gradient-gold {
-    background: var(--gradient-gold);
-  }
-  .text-gradient-gold {
-    background: var(--gradient-gold);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .gold-line {
-    background: var(--gradient-gold);
-    height: 1px;
-  }
-  .hover-lift {
-    transition: transform 0.6s var(--transition-smooth), box-shadow 0.6s var(--transition-smooth);
-  }
-  .hover-lift:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-gold);
-  }
-  .reveal-up {
-    animation: revealUp 1s var(--transition-smooth) both;
-  }
-}
+  .font-serif  { font-family: "Playfair Display", Georgia, serif; }
+  .font-cormorant { font-family: "Cormorant Garamond", Georgia, serif; }
+  .font-sans   { font-family: "Lato", system-ui, sans-serif; }
 
-@keyframes revealUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  .blob-shape  { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+  .blob-shape-2 { border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
 
-@keyframes shimmer {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+  .animate-on-scroll-delay-1 { transition-delay: 0.1s; }
+  .animate-on-scroll-delay-2 { transition-delay: 0.2s; }
+  .animate-on-scroll-delay-3 { transition-delay: 0.3s; }
 }
