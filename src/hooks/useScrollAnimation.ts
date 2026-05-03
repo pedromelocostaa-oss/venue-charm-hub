@@ -1,25 +1,23 @@
 import { useEffect, useRef } from "react";
 
-export function useScrollAnimation() {
-  const ref = useRef<HTMLDivElement>(null);
+export function useReveal(rootMargin = "0px 0px -60px 0px") {
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const container = ref.current;
+    if (!container) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("in-view");
         });
       },
-      { threshold: 0.12 }
+      { rootMargin }
     );
 
-    el.querySelectorAll(".animate-on-scroll").forEach((t) => observer.observe(t));
-    if (el.classList.contains("animate-on-scroll")) observer.observe(el);
+    container.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    if (container.classList.contains("reveal")) observer.observe(container);
 
     return () => observer.disconnect();
   }, []);
