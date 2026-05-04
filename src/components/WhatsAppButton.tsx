@@ -1,6 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 const WA = "https://wa.me/5531991964746";
 
 export function WhatsAppButton() {
+  const location = useLocation();
+
+  if (location.pathname === "/casamento") return null;
+
   return (
     <a
       href={WA}
