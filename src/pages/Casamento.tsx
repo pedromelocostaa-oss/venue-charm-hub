@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useReveal } from "../hooks/useScrollAnimation";
+import ZoomableImage from "@/components/ZoomableImage";
 import cerimoniaFoto1 from "@/assets/cerimonia-1.png";
 import cerimoniaFoto2 from "@/assets/cerimonia-2.png";
 import recepcaoFoto1 from "@/assets/recepcao-1.png";
