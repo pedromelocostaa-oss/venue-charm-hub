@@ -143,32 +143,6 @@ export default function Casamento() {
         </div>
       </SectionWrap>
 
-      {/* ── REFERÊNCIA VISUAL ── */}
-      <SectionWrap id="referencia" className="py-24 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <div className="reveal mb-12">
-            <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Inspiração</p>
-            <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Referência Visual</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="reveal flex flex-col gap-3">
-              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
-                {/* SUBSTITUIR: prancha de referência — cerimônia */}
-                <img src="https://picsum.photos/700/900?random=61" alt="Referência Cerimônia" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <p className="font-sans text-xs tracking-widest uppercase text-center" style={{ color: "#8B5E3C" }}>Cerimônia</p>
-            </div>
-            <div className="reveal reveal-delay-2 flex flex-col gap-3">
-              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
-                {/* SUBSTITUIR: prancha de referência — recepção */}
-                <img src="https://picsum.photos/700/900?random=62" alt="Referência Recepção" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <p className="font-sans text-xs tracking-widest uppercase text-center" style={{ color: "#8B5E3C" }}>Recepção</p>
-            </div>
-          </div>
-        </div>
-      </SectionWrap>
-
       {/* ── CERIMÔNIA ── */}
       <SectionWrap id="cerimonia" bg="#FFFFFF" className="py-24 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 blob-1 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(-30%,-30%)" }} />
