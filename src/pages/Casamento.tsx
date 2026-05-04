@@ -132,13 +132,6 @@ export default function Casamento() {
             <p className="font-cormorant text-2xl sm:text-3xl leading-relaxed" style={{ color: "#2D5016" }}>
               "O projeto foi pensado para valorizar o caminho da noiva e o momento da cerimônia de forma leve e natural."
             </p>
-            <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-              Os elementos suspensos acompanham o eixo do tapete, enquanto o arco se desenvolve
-              em um movimento ascendente, criando um gesto elegante e contemporâneo.
-            </p>
-            <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-              A composição une natureza, fluidez e sofisticação, sem excessos.
-            </p>
           </div>
         </div>
       </SectionWrap>
