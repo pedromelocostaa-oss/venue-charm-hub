@@ -225,57 +225,81 @@ export default function Casamento() {
       <SectionWrap id="recepcao" className="py-24 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-80 h-80 blob-2 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(25%,25%)" }} />
         <div className="max-w-6xl mx-auto">
-          <div className="reveal mb-14">
-            <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Projeto</p>
-            <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Recepção</h2>
+          {/* Cabeçalho */}
+          <div className="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-end">
+            <div className="lg:col-span-7">
+              <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Projeto</p>
+              <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Recepção</h2>
+            </div>
+            <p className="lg:col-span-5 font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
+              Uma atmosfera acolhedora, com iluminação quente, elementos naturais e uma composição
+              elegante e equilibrada.
+            </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Texto — esquerda */}
-            <div className="reveal flex flex-col gap-6">
-              <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-                A recepção traz uma atmosfera acolhedora, com iluminação quente, elementos naturais e
-                uma composição elegante e equilibrada.
-              </p>
-              <div className="grid grid-cols-2 gap-3 mt-2">
+
+          {/* Foto destaque */}
+          <div className="reveal mb-6">
+            <ZoomableImage
+              src={recepcaoFoto1}
+              alt="Mesa de doces e bolo com decoração natural"
+              className="rounded-3xl aspect-[21/9] w-full"
+            />
+          </div>
+
+          {/* Mosaico editorial */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Coluna esquerda — atmosfera */}
+            <div className="reveal lg:col-span-4 flex flex-col gap-5 lg:sticky lg:top-24 self-start">
+              <div className="rounded-2xl p-6" style={{ backgroundColor: "#fff", borderLeft: "3px solid #8B5E3C" }}>
+                <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#8B5E3C" }}>
+                  Atmosfera
+                </p>
+                <p className="font-cormorant text-2xl italic leading-snug" style={{ color: "#2D5016" }}>
+                  "Aconchego, sofisticação e a delicadeza dos detalhes."
+                </p>
+              </div>
+              <div className="flex flex-col gap-2">
                 {[
                   { label: "Iluminação quente", cor: "#8B5E3C" },
                   { label: "Elementos naturais", cor: "#3D7A1A" },
                   { label: "Mesas comunitárias", cor: "#1A1A1A" },
                   { label: "Flores silvestres", cor: "#C0392B" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2 p-3 rounded-lg" style={{ backgroundColor: "#fff" }}>
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl"
+                    style={{ backgroundColor: "#fff" }}
+                  >
                     <span className="shrink-0 w-2 h-2 rounded-full" style={{ backgroundColor: item.cor }} />
-                    <span className="font-sans text-xs" style={{ color: "#374151" }}>{item.label}</span>
+                    <span className="font-sans text-xs tracking-wide" style={{ color: "#374151" }}>
+                      {item.label}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
-            {/* Fotos — direita */}
-            <div className="reveal reveal-delay-2 grid grid-cols-2 gap-3">
-              <ZoomableImage
-                src={recepcaoFoto1}
-                alt="Mesa de doces e bolo com decoração natural"
-                className="col-span-2 rounded-2xl aspect-[16/9]"
-              />
+
+            {/* Coluna direita — galeria */}
+            <div className="reveal reveal-delay-2 lg:col-span-8 grid grid-cols-2 gap-4">
               <ZoomableImage
                 src={recepcaoFoto2}
                 alt="Castiçal com velas e arranjo floral"
-                className="rounded-xl aspect-[3/4]"
-              />
-              <ZoomableImage
-                src={recepcaoFoto4}
-                alt="Arranjo floral em vaso dourado"
-                className="rounded-xl aspect-[3/4]"
+                className="rounded-2xl aspect-[3/4] row-span-2"
               />
               <ZoomableImage
                 src={recepcaoFoto3}
                 alt="Mesa redonda com centro floral e velas"
-                className="rounded-xl aspect-[1/1]"
+                className="rounded-2xl aspect-[4/3]"
               />
               <ZoomableImage
                 src={recepcaoFoto5}
                 alt="Estação de bem-casados com flores"
-                className="rounded-xl aspect-[1/1]"
+                className="rounded-2xl aspect-[4/3]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto4}
+                alt="Arranjo floral em vaso dourado"
+                className="col-span-2 rounded-2xl aspect-[16/9]"
               />
             </div>
           </div>
