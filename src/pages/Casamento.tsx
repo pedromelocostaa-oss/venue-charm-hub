@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useReveal } from "../hooks/useScrollAnimation";
+import ZoomableImage from "@/components/ZoomableImage";
 import cerimoniaFoto1 from "@/assets/cerimonia-1.png";
 import cerimoniaFoto2 from "@/assets/cerimonia-2.png";
 import recepcaoFoto1 from "@/assets/recepcao-1.png";
@@ -171,13 +172,17 @@ export default function Casamento() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Fotos — esquerda */}
-            <div className="reveal grid grid-cols-1 gap-4">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
-                <img src={cerimoniaFoto1} alt="Cerimônia — eixo central com tapete vermelho" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
-                <img src={cerimoniaFoto2} alt="Cerimônia — arco floral assimétrico" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+            <div className="reveal grid grid-cols-2 gap-3 lg:max-w-md">
+              <ZoomableImage
+                src={cerimoniaFoto1}
+                alt="Cerimônia — eixo central com tapete vermelho"
+                className="rounded-2xl aspect-[3/4]"
+              />
+              <ZoomableImage
+                src={cerimoniaFoto2}
+                alt="Cerimônia — arco floral assimétrico"
+                className="rounded-2xl aspect-[3/4]"
+              />
             </div>
             {/* Texto — direita */}
             <div className="reveal reveal-delay-2 flex flex-col gap-7">
@@ -244,21 +249,31 @@ export default function Casamento() {
             </div>
             {/* Fotos — direita */}
             <div className="reveal reveal-delay-2 grid grid-cols-2 gap-3">
-              <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/9]">
-                <img src={recepcaoFoto1} alt="Mesa de doces e bolo com decoração natural" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                <img src={recepcaoFoto2} alt="Castiçal com velas e arranjo floral" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                <img src={recepcaoFoto4} alt="Arranjo floral em vaso dourado" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                <img src={recepcaoFoto3} alt="Mesa redonda com centro floral e velas" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                <img src={recepcaoFoto5} alt="Estação de bem-casados com flores" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              <ZoomableImage
+                src={recepcaoFoto1}
+                alt="Mesa de doces e bolo com decoração natural"
+                className="col-span-2 rounded-2xl aspect-[16/9]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto2}
+                alt="Castiçal com velas e arranjo floral"
+                className="rounded-xl aspect-[3/4]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto4}
+                alt="Arranjo floral em vaso dourado"
+                className="rounded-xl aspect-[3/4]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto3}
+                alt="Mesa redonda com centro floral e velas"
+                className="rounded-xl aspect-[1/1]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto5}
+                alt="Estação de bem-casados com flores"
+                className="rounded-xl aspect-[1/1]"
+              />
             </div>
           </div>
         </div>
