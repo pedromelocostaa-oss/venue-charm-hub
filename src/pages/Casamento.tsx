@@ -125,12 +125,15 @@ export default function Casamento() {
           </div>
           <div className="reveal max-w-2xl flex flex-col gap-7">
             <p className="font-cormorant text-2xl sm:text-3xl leading-relaxed" style={{ color: "#2D5016" }}>
-              "A proposta combina elementos naturais com uma linguagem contemporânea, criando um
-              cenário leve, elegante e acolhedor."
+              "O projeto foi pensado para valorizar o caminho da noiva e o momento da cerimônia
+              de forma leve e natural."
             </p>
             <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-              A vegetação em movimento no teto acompanha o percurso da noiva, enquanto os elementos da
-              recepção reforçam o aconchego e a sofisticação do ambiente.
+              Os elementos suspensos acompanham o eixo do tapete, enquanto o arco se desenvolve
+              em um movimento ascendente, criando um gesto elegante e contemporâneo.
+            </p>
+            <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
+              A composição une natureza, fluidez e sofisticação, sem excessos.
             </p>
           </div>
         </div>
