@@ -276,11 +276,6 @@ export default function Casamento() {
             com movimento e identidade, que valoriza o momento da cerimônia."
           </blockquote>
           <div className="w-12 h-px" style={{ backgroundColor: "rgba(255,255,255,0.25)" }} />
-          <a href={WA} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-full px-8 py-4 font-sans text-sm font-semibold transition-all hover:scale-105"
-            style={{ backgroundColor: "#fff", color: "#2D5016" }}>
-            <WaIcon /> Falar com a Simone
-          </a>
         </div>
       </section>
 
