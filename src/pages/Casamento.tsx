@@ -51,8 +51,7 @@ export default function Casamento() {
 
       {/* CAPA */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-16">
-        {/* SUBSTITUIR: melhor foto da cerimônia */}
-        <img src="https://picsum.photos/1600/900?random=60" alt="Cerimônia" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+        <img src={cerimoniaCover} alt="Cerimônia" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0" style={{ backgroundColor: "rgba(248,247,244,0.78)" }} />
         <div className="absolute top-0 right-0 w-96 h-96 blob-2 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(20%,-20%)" }} />
 
