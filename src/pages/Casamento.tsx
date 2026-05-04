@@ -249,21 +249,31 @@ export default function Casamento() {
             </div>
             {/* Fotos — direita */}
             <div className="reveal reveal-delay-2 grid grid-cols-2 gap-3">
-              <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/9]">
-                <img src={recepcaoFoto1} alt="Mesa de doces e bolo com decoração natural" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                <img src={recepcaoFoto2} alt="Castiçal com velas e arranjo floral" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[3/4]">
-                <img src={recepcaoFoto4} alt="Arranjo floral em vaso dourado" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                <img src={recepcaoFoto3} alt="Mesa redonda com centro floral e velas" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                <img src={recepcaoFoto5} alt="Estação de bem-casados com flores" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+              <ZoomableImage
+                src={recepcaoFoto1}
+                alt="Mesa de doces e bolo com decoração natural"
+                className="col-span-2 rounded-2xl aspect-[16/9]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto2}
+                alt="Castiçal com velas e arranjo floral"
+                className="rounded-xl aspect-[3/4]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto4}
+                alt="Arranjo floral em vaso dourado"
+                className="rounded-xl aspect-[3/4]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto3}
+                alt="Mesa redonda com centro floral e velas"
+                className="rounded-xl aspect-[1/1]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto5}
+                alt="Estação de bem-casados com flores"
+                className="rounded-xl aspect-[1/1]"
+              />
             </div>
           </div>
         </div>
