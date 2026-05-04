@@ -13,19 +13,11 @@ import recepcaoFoto5 from "@/assets/recepcao-5.png";
 const NOIVOS      = "Gabriella Tereza & Tales Augusto";
 const DATA_EVENTO = "15 de maio de 2027";
 
-const WA = "https://wa.me/5531991964746";
-
-const WaIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-  </svg>
-);
-
 const paletaCores = [
-  { hex: "#3D7A1A", name: "Verde Vivo",      papel: "Base e continuidade" },
-  { hex: "#F8F7F4", name: "Branco Suave",    papel: "Leveza e delicadeza",  border: true },
-  { hex: "#8B5E3C", name: "Marrom",          papel: "Rusticidade sofisticada" },
-  { hex: "#1A1A1A", name: "Preto",           papel: "Contraste e elegância" },
+  { hex: "#3D7A1A", name: "Verde Vivo",        papel: "Base e continuidade" },
+  { hex: "#F8F7F4", name: "Branco Suave",      papel: "Leveza e delicadeza", border: true },
+  { hex: "#8B5E3C", name: "Marrom",            papel: "Rusticidade sofisticada" },
+  { hex: "#1A1A1A", name: "Preto",             papel: "Contraste e elegância" },
   { hex: "#C0392B", name: "Vermelho Profundo", papel: "Ponto focal e emoção" },
 ];
 
@@ -35,6 +27,14 @@ const elementosCerimonia = [
   "Jardineiras baixas com flores brancas, folhagens e galhos secos",
   "Fundo com trepadeira vazada (entrada de luz natural)",
   "Arco floral assimétrico, ascendente e envolvente",
+];
+
+const elementosRecepcao = [
+  { dot: "#3D7A1A", text: "Iluminação quente e acolhedora em todo o salão" },
+  { dot: "#8B5E3C", text: "Centros de mesa com flores silvestres e velas" },
+  { dot: "#1A1A1A", text: "Mesas comunitárias com galhos secos e folhagens" },
+  { dot: "#C0392B", text: "Estação de doces com bolo decorado e bem-casados" },
+  { dot: "#3D7A1A", text: "Cantinho fotográfico com arranjo floral exclusivo" },
 ];
 
 function SectionWrap({ id, bg, className = "", children }: {
@@ -56,12 +56,17 @@ export default function Casamento() {
   return (
     <div style={{ backgroundColor: "#F8F7F4" }}>
 
-      {/* CAPA */}
+      {/* ── CAPA ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden pt-16">
-        {/* SUBSTITUIR: melhor foto da cerimônia */}
-        <img src="https://picsum.photos/1600/900?random=60" alt="Cerimônia" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(248,247,244,0.78)" }} />
-        <div className="absolute top-0 right-0 w-96 h-96 blob-2 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(20%,-20%)" }} />
+        {/* Foto real da cerimônia como capa */}
+        <img
+          src={cerimoniaFoto1}
+          alt="Cerimônia — La Nature Eventos"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Overlay suave que preserva a foto mas dá legibilidade ao texto */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(248,247,244,0.55) 0%, rgba(248,247,244,0.72) 60%, rgba(248,247,244,0.92) 100%)" }} />
 
         <div className="relative z-10 flex flex-col items-center gap-5 max-w-3xl">
           <p className="animate-fade-in font-sans text-xs tracking-[0.45em] uppercase" style={{ color: "#8B5E3C", animationDelay: "0.1s" }}>
@@ -73,20 +78,22 @@ export default function Casamento() {
           <p className="animate-fade-up font-cormorant text-2xl sm:text-3xl italic" style={{ color: "#8B5E3C", animationDelay: "0.4s" }}>
             Cerimônia &amp; Recepção
           </p>
-          <div className="animate-fade-up w-12 h-px my-2" style={{ backgroundColor: "#8B5E3C", animationDelay: "0.5s" }} />
+          <div className="animate-fade-up w-14 h-px my-1" style={{ backgroundColor: "#8B5E3C", animationDelay: "0.5s" }} />
           <p className="animate-fade-up font-serif text-xl sm:text-2xl font-medium" style={{ color: "#2D5016", animationDelay: "0.6s" }}>
             {NOIVOS}
           </p>
-          <p className="animate-fade-up font-sans text-sm tracking-widest uppercase" style={{ color: "#6B7280", animationDelay: "0.7s" }}>
+          <p className="animate-fade-up font-sans text-xs tracking-widest uppercase" style={{ color: "#6B7280", animationDelay: "0.7s" }}>
             {DATA_EVENTO}
           </p>
         </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 opacity-40">
-          <div className="w-px h-10 animate-pulse" style={{ backgroundColor: "#2D5016" }} />
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-50">
+          <span className="font-sans text-[9px] tracking-[0.3em] uppercase" style={{ color: "#2D5016" }}>role para ver</span>
+          <div className="w-px h-8 animate-pulse" style={{ backgroundColor: "#2D5016" }} />
         </div>
       </section>
 
-      {/* PALETA */}
+      {/* ── PALETA ── */}
       <SectionWrap id="paleta" className="py-24 relative overflow-hidden">
         <div className="absolute bottom-0 left-0 w-72 h-72 blob-3 opacity-40 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(-25%,25%)" }} />
         <div className="max-w-5xl mx-auto">
@@ -97,10 +104,8 @@ export default function Casamento() {
           <div className="reveal flex flex-col sm:flex-row gap-3 mb-10">
             {paletaCores.map((c) => (
               <div key={c.hex} className="flex-1 flex flex-col gap-3">
-                <div
-                  className="h-28 sm:h-36 rounded-xl transition-transform hover:scale-105"
-                  style={{ backgroundColor: c.hex, border: c.border ? "1px solid #E8DDD4" : "none" }}
-                />
+                <div className="h-28 sm:h-36 rounded-xl transition-transform hover:scale-105"
+                  style={{ backgroundColor: c.hex, border: c.border ? "1px solid #E8DDD4" : "none" }} />
                 <div>
                   <p className="font-serif text-sm font-medium" style={{ color: "#1A1A1A" }}>{c.name}</p>
                   <p className="font-sans text-xs" style={{ color: "#6B7280" }}>{c.papel}</p>
@@ -115,7 +120,7 @@ export default function Casamento() {
         </div>
       </SectionWrap>
 
-      {/* CONCEITO */}
+      {/* ── CONCEITO ── */}
       <SectionWrap id="conceito" bg="#FFFFFF" className="py-24 relative overflow-hidden">
         <div className="absolute -right-24 top-1/2 -translate-y-1/2 w-96 h-96 blob-1 opacity-20 pointer-events-none" style={{ backgroundColor: "#E8DDD4" }} />
         <div className="max-w-4xl mx-auto">
@@ -125,8 +130,7 @@ export default function Casamento() {
           </div>
           <div className="reveal max-w-2xl flex flex-col gap-7">
             <p className="font-cormorant text-2xl sm:text-3xl leading-relaxed" style={{ color: "#2D5016" }}>
-              "O projeto foi pensado para valorizar o caminho da noiva e o momento da cerimônia
-              de forma leve e natural."
+              "O projeto foi pensado para valorizar o caminho da noiva e o momento da cerimônia de forma leve e natural."
             </p>
             <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
               Os elementos suspensos acompanham o eixo do tapete, enquanto o arco se desenvolve
@@ -139,7 +143,7 @@ export default function Casamento() {
         </div>
       </SectionWrap>
 
-      {/* REFERÊNCIA GERAL */}
+      {/* ── REFERÊNCIA VISUAL ── */}
       <SectionWrap id="referencia" className="py-24 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="reveal mb-12">
@@ -165,7 +169,7 @@ export default function Casamento() {
         </div>
       </SectionWrap>
 
-      {/* CERIMÔNIA */}
+      {/* ── CERIMÔNIA ── */}
       <SectionWrap id="cerimonia" bg="#FFFFFF" className="py-24 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 blob-1 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(-30%,-30%)" }} />
         <div className="max-w-6xl mx-auto">
@@ -174,36 +178,26 @@ export default function Casamento() {
             <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Cerimônia</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Fotos — esquerda */}
+            {/* Fotos */}
             <div className="reveal grid grid-cols-2 gap-3 lg:max-w-md">
-              <ZoomableImage
-                src={cerimoniaFoto1}
-                alt="Cerimônia — eixo central com tapete vermelho"
-                className="rounded-2xl aspect-[3/4]"
-              />
-              <ZoomableImage
-                src={cerimoniaFoto2}
-                alt="Cerimônia — arco floral assimétrico"
-                className="rounded-2xl aspect-[3/4]"
-              />
+              <ZoomableImage src={cerimoniaFoto1} alt="Cerimônia — eixo central com tapete vermelho" className="rounded-2xl aspect-[3/4]" />
+              <ZoomableImage src={cerimoniaFoto2} alt="Cerimônia — arco floral assimétrico" className="rounded-2xl aspect-[3/4]" />
             </div>
-            {/* Texto — direita */}
+            {/* Texto */}
             <div className="reveal reveal-delay-2 flex flex-col gap-7">
               <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-                A cerimônia valoriza o caminho da noiva com um eixo central marcado e elementos suspensos
-                que criam movimento e leveza.
+                A cerimônia valoriza o caminho da noiva com um eixo central marcado e elementos
+                suspensos que criam movimento e leveza.
               </p>
               <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
                 O arco floral assimétrico finaliza o percurso com elegância e personalidade.
               </p>
               <div>
-                <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: "#8B5E3C" }}>
-                  Elementos principais
-                </p>
+                <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: "#8B5E3C" }}>Elementos principais</p>
                 <ul className="space-y-3">
                   {elementosCerimonia.map((el) => (
                     <li key={el} className="flex items-start gap-3">
-                      <span className="shrink-0 w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: "#C0392B" }} />
+                      <span className="shrink-0 w-1.5 h-1.5 rounded-full mt-[7px]" style={{ backgroundColor: "#C0392B" }} />
                       <span className="font-sans text-sm" style={{ color: "#374151" }}>{el}</span>
                     </li>
                   ))}
@@ -212,8 +206,8 @@ export default function Casamento() {
               <div className="rounded-xl p-5" style={{ backgroundColor: "#F8F7F4", borderLeft: "3px solid #3D7A1A" }}>
                 <p className="font-sans text-[10px] tracking-widest uppercase mb-2" style={{ color: "#3D7A1A" }}>Altar</p>
                 <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-                  O arco floral se desenvolve a partir do lado esquerdo, com um movimento ascendente leve
-                  e orgânico. O uso de urucum adiciona toque de cor e personalidade.
+                  O arco floral se desenvolve a partir do lado esquerdo, com um movimento ascendente
+                  leve e orgânico. O uso de urucum adiciona toque de cor e personalidade.
                 </p>
               </div>
             </div>
@@ -221,92 +215,132 @@ export default function Casamento() {
         </div>
       </SectionWrap>
 
-      {/* RECEPÇÃO */}
+      {/* ── RECEPÇÃO ── */}
+      {/*
+        Layout pensado para os noivos:
+        1. Cabeçalho com intro emocional
+        2. Foto destaque full-width (mesa de doces / bolo)
+        3. Grade editorial: texto + elementos à esq., galeria à dir.
+        4. Fechamento com recepcao-5 como detalhe atmosférico
+      */}
       <SectionWrap id="recepcao" className="py-24 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-80 h-80 blob-2 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(25%,25%)" }} />
-        <div className="max-w-6xl mx-auto">
-          {/* Cabeçalho */}
-          <div className="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-end">
-            <div className="lg:col-span-7">
+        <div className="max-w-6xl mx-auto flex flex-col gap-14">
+
+          {/* Cabeçalho da seção */}
+          <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
+            <div>
               <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Projeto</p>
               <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Recepção</h2>
             </div>
-            <p className="lg:col-span-5 font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-              Uma atmosfera acolhedora, com iluminação quente, elementos naturais e uma composição
-              elegante e equilibrada.
+            <p className="font-cormorant text-2xl italic leading-snug" style={{ color: "#2D5016" }}>
+              "Um ambiente que envolve, acolhe e permanece na memória de cada convidado."
             </p>
           </div>
 
-          {/* Foto destaque */}
-          <div className="reveal mb-6">
+          {/* Foto destaque — wide */}
+          <div style={{ aspectRatio: "21/9", minHeight: "220px" }}>
             <ZoomableImage
               src={recepcaoFoto1}
-              alt="Mesa de doces e bolo com decoração natural"
-              className="rounded-3xl aspect-[21/9] w-full"
+              alt="Vista geral da recepção — decoração completa"
+              className="rounded-3xl w-full h-full"
             />
           </div>
+          <p className="font-sans text-xs text-center tracking-wide" style={{ color: "#6B7280" }}>
+            Mesa de doces &amp; bolo · decoração com elementos naturais
+          </p>
 
-          {/* Mosaico editorial */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Coluna esquerda — atmosfera */}
-            <div className="reveal lg:col-span-4 flex flex-col gap-5 lg:sticky lg:top-24 self-start">
-              <div className="rounded-2xl p-6" style={{ backgroundColor: "#fff", borderLeft: "3px solid #8B5E3C" }}>
-                <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#8B5E3C" }}>
-                  Atmosfera
+          {/* Corpo principal: texto esq / galeria dir */}
+          <div className="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            {/* Coluna de texto + elementos */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
+                A recepção integra iluminação quente, vegetação viva e uma composição cuidadosa
+                de materiais que criam um ambiente íntimo e sofisticado.
+              </p>
+              <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
+                Cada mesa foi pensada para convidar os convidados a ficarem — com centros florais
+                elaborados, velas e texturas naturais que dialogam com o entorno do La Nature.
+              </p>
+
+              {/* Lista de elementos */}
+              <div>
+                <p className="font-sans text-[10px] tracking-[0.35em] uppercase mb-4" style={{ color: "#8B5E3C" }}>
+                  Elementos da decoração
                 </p>
-                <p className="font-cormorant text-2xl italic leading-snug" style={{ color: "#2D5016" }}>
-                  "Aconchego, sofisticação e a delicadeza dos detalhes."
-                </p>
+                <ul className="flex flex-col gap-3">
+                  {elementosRecepcao.map((el) => (
+                    <li key={el.text} className="flex items-start gap-3">
+                      <span className="shrink-0 w-1.5 h-1.5 rounded-full mt-[7px]" style={{ backgroundColor: el.dot }} />
+                      <span className="font-sans text-sm leading-relaxed" style={{ color: "#374151" }}>{el.text}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="flex flex-col gap-2">
-                {[
-                  { label: "Iluminação quente", cor: "#8B5E3C" },
-                  { label: "Elementos naturais", cor: "#3D7A1A" },
-                  { label: "Mesas comunitárias", cor: "#1A1A1A" },
-                  { label: "Flores silvestres", cor: "#C0392B" },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl"
-                    style={{ backgroundColor: "#fff" }}
-                  >
-                    <span className="shrink-0 w-2 h-2 rounded-full" style={{ backgroundColor: item.cor }} />
-                    <span className="font-sans text-xs tracking-wide" style={{ color: "#374151" }}>
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
+
+              {/* Card atmosfera */}
+              <div className="rounded-xl p-5" style={{ backgroundColor: "#fff", borderLeft: "3px solid #8B5E3C" }}>
+                <p className="font-sans text-[10px] tracking-widest uppercase mb-2" style={{ color: "#8B5E3C" }}>Atmosfera</p>
+                <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
+                  A iluminação trabalha em conjunto com a vegetação para criar camadas de
+                  profundidade — quente perto das mesas, suave nas bordas do salão.
+                </p>
               </div>
             </div>
 
-            {/* Coluna direita — galeria */}
-            <div className="reveal reveal-delay-2 lg:col-span-8 grid grid-cols-2 gap-4">
-              <ZoomableImage
-                src={recepcaoFoto2}
-                alt="Castiçal com velas e arranjo floral"
-                className="rounded-2xl aspect-[3/4] row-span-2"
-              />
+            {/* Galeria editorial — coluna direita */}
+            <div className="lg:col-span-8 grid grid-cols-2 gap-4">
+              {/* Foto tall — recepcao-2 ocupa duas linhas */}
+              <div className="row-span-2" style={{ minHeight: "340px" }}>
+                <ZoomableImage
+                  src={recepcaoFoto2}
+                  alt="Castiçal com velas e arranjo floral"
+                  className="rounded-2xl w-full h-full"
+                />
+              </div>
+              {/* Foto recepcao-3 */}
               <ZoomableImage
                 src={recepcaoFoto3}
                 alt="Mesa redonda com centro floral e velas"
                 className="rounded-2xl aspect-[4/3]"
               />
-              <ZoomableImage
-                src={recepcaoFoto5}
-                alt="Estação de bem-casados com flores"
-                className="rounded-2xl aspect-[4/3]"
-              />
+              {/* Foto recepcao-4 */}
               <ZoomableImage
                 src={recepcaoFoto4}
-                alt="Arranjo floral em vaso dourado"
-                className="col-span-2 rounded-2xl aspect-[16/9]"
+                alt="Arranjo floral em vaso com folhagens"
+                className="rounded-2xl aspect-[4/3]"
               />
             </div>
           </div>
+
+          {/* Foto final — detalhe atmosférico */}
+          <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+            <ZoomableImage
+              src={recepcaoFoto5}
+              alt="Estação de bem-casados com flores silvestres"
+              className="rounded-2xl aspect-[4/3] w-full"
+            />
+            <div className="flex flex-col gap-4 lg:pl-6">
+              <p className="font-sans text-[10px] tracking-[0.35em] uppercase" style={{ color: "#8B5E3C" }}>
+                Detalhes que fazem a diferença
+              </p>
+              <p className="font-cormorant text-2xl sm:text-3xl italic leading-snug" style={{ color: "#2D5016" }}>
+                "São os pequenos gestos — o arranjo ao lado do bolo, o aroma das flores, a luz
+                baixa nas mesas — que os convidados vão levar para sempre."
+              </p>
+              <div className="w-10 h-px" style={{ backgroundColor: "#E8DDD4" }} />
+              <p className="font-sans text-xs leading-relaxed" style={{ color: "#6B7280" }}>
+                Cada detalhe da estação de doces e bem-casados foi pensado para ser fotografado
+                e lembrado — como uma extensão do cuidado que permeia todo o evento.
+              </p>
+            </div>
+          </div>
+
         </div>
       </SectionWrap>
 
-      {/* ENCERRAMENTO */}
+      {/* ── ENCERRAMENTO ── */}
       <section className="py-28 px-5 relative overflow-hidden text-center" style={{ backgroundColor: "#2D5016" }}>
         <div className="absolute top-0 left-0 w-96 h-96 blob-1 opacity-15 pointer-events-none" style={{ backgroundColor: "#fff", transform: "translate(-30%,-30%)" }} />
         <div className="absolute bottom-0 right-0 w-72 h-72 blob-3 opacity-10 pointer-events-none" style={{ backgroundColor: "#fff", transform: "translate(25%,25%)" }} />
@@ -322,6 +356,9 @@ export default function Casamento() {
             com movimento e identidade, que valoriza o momento da cerimônia."
           </blockquote>
           <div className="w-12 h-px" style={{ backgroundColor: "rgba(255,255,255,0.25)" }} />
+          <p className="font-sans text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+            © La Nature Eventos · Casa Branca, Brumadinho · MG
+          </p>
         </div>
       </section>
 

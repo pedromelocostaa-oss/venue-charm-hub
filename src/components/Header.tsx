@@ -12,8 +12,12 @@ const WaIcon = () => (
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // On /casamento the header is minimal — no nav, no CTA.
+  // The page is shared as a clean proposal to the couple.
+  const isCasamento = location.pathname === "/casamento";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -21,7 +25,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => { setMenuOpen(false); }, [location.pathname]);
 
   const navItems = [
@@ -39,94 +42,99 @@ export function Header() {
       }}
     >
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
-        {/* Logo */}
-        <NavLink to="/espaco" className="shrink-0">
+
+        {/* Logo — links to /espaco on espaco, stays on casamento when there */}
+        <NavLink to={isCasamento ? "/casamento" : "/espaco"} className="shrink-0">
           <Logo size="sm" />
         </NavLink>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navItems.map(({ path, label }) => {
-            const active = location.pathname === path;
-            return (
-              <NavLink
-                key={path}
-                to={path}
-                className="relative px-4 py-2 font-sans text-sm font-medium transition-colors"
-                style={{ color: active ? "#8B5E3C" : "#6B7280" }}
-              >
-                {label}
-                {active && (
-                  <span
-                    className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full"
-                    style={{ backgroundColor: "#8B5E3C" }}
-                  />
-                )}
-              </NavLink>
-            );
-          })}
-        </nav>
+        {/* Full navigation — hidden on /casamento */}
+        {!isCasamento && (
+          <>
+            <nav className="hidden md:flex items-center gap-1">
+              {navItems.map(({ path, label }) => {
+                const active = location.pathname === path;
+                return (
+                  <NavLink
+                    key={path}
+                    to={path}
+                    className="relative px-4 py-2 font-sans text-sm font-medium transition-colors"
+                    style={{ color: active ? "#8B5E3C" : "#6B7280" }}
+                  >
+                    {label}
+                    {active && (
+                      <span
+                        className="absolute bottom-0 left-4 right-4 h-[2px] rounded-full"
+                        style={{ backgroundColor: "#8B5E3C" }}
+                      />
+                    )}
+                  </NavLink>
+                );
+              })}
+            </nav>
 
-        {/* Desktop CTA */}
-        <a
-          href={WA}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 rounded-full px-5 py-2 font-sans text-xs font-semibold text-white tracking-wide transition-all hover:brightness-110 hover:scale-105 active:scale-95"
-          style={{ backgroundColor: "#2D5016" }}
-        >
-          <WaIcon />
-          Falar com a Simone
-        </a>
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center gap-2 rounded-full px-5 py-2 font-sans text-xs font-semibold text-white tracking-wide transition-all hover:brightness-110 hover:scale-105 active:scale-95"
+              style={{ backgroundColor: "#2D5016" }}
+            >
+              <WaIcon />
+              Falar com a Simone
+            </a>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-[5px] p-2 rounded-md"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-        >
-          <span className={`block h-[2px] w-5 rounded transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} style={{ backgroundColor: "#2D5016" }} />
-          <span className={`block h-[2px] w-5 rounded transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} style={{ backgroundColor: "#2D5016" }} />
-          <span className={`block h-[2px] w-5 rounded transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} style={{ backgroundColor: "#2D5016" }} />
-        </button>
+            <button
+              className="md:hidden flex flex-col gap-[5px] p-2 rounded-md"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              <span className={"block h-[2px] w-5 rounded transition-all duration-200 " + (menuOpen ? "rotate-45 translate-y-[7px]" : "")} style={{ backgroundColor: "#2D5016" }} />
+              <span className={"block h-[2px] w-5 rounded transition-all duration-200 " + (menuOpen ? "opacity-0" : "")} style={{ backgroundColor: "#2D5016" }} />
+              <span className={"block h-[2px] w-5 rounded transition-all duration-200 " + (menuOpen ? "-rotate-45 -translate-y-[7px]" : "")} style={{ backgroundColor: "#2D5016" }} />
+            </button>
+          </>
+        )}
       </div>
 
-      {/* Mobile dropdown */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}`}
-        style={{ backgroundColor: "#F8F7F4", borderTop: "1px solid #E8DDD4" }}
-      >
-        <div className="px-5 py-4 flex flex-col gap-2">
-          {navItems.map(({ path, label }) => {
-            const active = location.pathname === path;
-            return (
-              <NavLink
-                key={path}
-                to={path}
-                className="py-3 font-sans text-sm font-medium border-b"
-                style={{
-                  color: active ? "#8B5E3C" : "#6B7280",
-                  borderColor: "#E8DDD4",
-                  borderLeft: active ? "3px solid #8B5E3C" : "3px solid transparent",
-                  paddingLeft: "12px",
-                }}
-              >
-                {label}
-              </NavLink>
-            );
-          })}
-          <a
-            href={WA}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-sans text-xs font-semibold text-white"
-            style={{ backgroundColor: "#2D5016" }}
-          >
-            <WaIcon />
-            Falar com a Simone
-          </a>
+      {/* Mobile dropdown — only on /espaco */}
+      {!isCasamento && (
+        <div
+          className={"md:hidden overflow-hidden transition-all duration-300 " + (menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0")}
+          style={{ backgroundColor: "#F8F7F4", borderTop: "1px solid #E8DDD4" }}
+        >
+          <div className="px-5 py-4 flex flex-col gap-2">
+            {navItems.map(({ path, label }) => {
+              const active = location.pathname === path;
+              return (
+                <NavLink
+                  key={path}
+                  to={path}
+                  className="py-3 font-sans text-sm font-medium border-b"
+                  style={{
+                    color: active ? "#8B5E3C" : "#6B7280",
+                    borderColor: "#E8DDD4",
+                    borderLeft: active ? "3px solid #8B5E3C" : "3px solid transparent",
+                    paddingLeft: "12px",
+                  }}
+                >
+                  {label}
+                </NavLink>
+              );
+            })}
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-sans text-xs font-semibold text-white"
+              style={{ backgroundColor: "#2D5016" }}
+            >
+              <WaIcon />
+              Falar com a Simone
+            </a>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
