@@ -172,13 +172,17 @@ export default function Casamento() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Fotos — esquerda */}
-            <div className="reveal grid grid-cols-1 gap-4">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
-                <img src={cerimoniaFoto1} alt="Cerimônia — eixo central com tapete vermelho" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
-                <img src={cerimoniaFoto2} alt="Cerimônia — arco floral assimétrico" className="w-full h-full object-cover" loading="lazy" />
-              </div>
+            <div className="reveal grid grid-cols-2 gap-3 lg:max-w-md">
+              <ZoomableImage
+                src={cerimoniaFoto1}
+                alt="Cerimônia — eixo central com tapete vermelho"
+                className="rounded-2xl aspect-[3/4]"
+              />
+              <ZoomableImage
+                src={cerimoniaFoto2}
+                alt="Cerimônia — arco floral assimétrico"
+                className="rounded-2xl aspect-[3/4]"
+              />
             </div>
             {/* Texto — direita */}
             <div className="reveal reveal-delay-2 flex flex-col gap-7">
