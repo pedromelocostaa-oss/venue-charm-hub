@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useReveal } from "../hooks/useScrollAnimation";
+import cerimoniaFoto1 from "@/assets/cerimonia-1.png";
+import cerimoniaFoto2 from "@/assets/cerimonia-2.png";
 
 // EDITAR: nome dos noivos e data do evento
 const NOIVOS      = "Gabriella Tereza & Tales Augusto";
@@ -164,18 +166,12 @@ export default function Casamento() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Fotos — esquerda */}
-            <div className="reveal grid grid-cols-2 gap-3">
-              <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/9]">
-                {/* SUBSTITUIR: foto cerimônia 1 */}
-                <img src="https://picsum.photos/900/500?random=63" alt="Cerimônia 1" className="w-full h-full object-cover" loading="lazy" />
+            <div className="reveal grid grid-cols-1 gap-4">
+              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+                <img src={cerimoniaFoto1} alt="Cerimônia — eixo central com tapete vermelho" className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                {/* SUBSTITUIR: foto cerimônia 2 */}
-                <img src="https://picsum.photos/500/500?random=64" alt="Cerimônia 2" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                {/* SUBSTITUIR: foto cerimônia 3 */}
-                <img src="https://picsum.photos/500/500?random=65" alt="Cerimônia 3" className="w-full h-full object-cover" loading="lazy" />
+              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+                <img src={cerimoniaFoto2} alt="Cerimônia — arco floral assimétrico" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
             {/* Texto — direita */}
