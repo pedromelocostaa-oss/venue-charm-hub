@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useReveal } from "../hooks/useScrollAnimation";
+import cerimoniaImg from "@/assets/cerimonia.jpg";
 
 // EDITAR: nome dos noivos e data do evento
 const NOIVOS      = "Gabriella Tereza & Tales Augusto";
@@ -157,57 +158,13 @@ export default function Casamento() {
       {/* CERIMÔNIA */}
       <SectionWrap id="cerimonia" bg="#FFFFFF" className="py-24 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 blob-1 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(-30%,-30%)" }} />
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="reveal mb-14">
             <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Projeto</p>
             <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Cerimônia</h2>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Fotos — esquerda */}
-            <div className="reveal grid grid-cols-2 gap-3">
-              <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/9]">
-                {/* SUBSTITUIR: foto cerimônia 1 */}
-                <img src="https://picsum.photos/900/500?random=63" alt="Cerimônia 1" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                {/* SUBSTITUIR: foto cerimônia 2 */}
-                <img src="https://picsum.photos/500/500?random=64" alt="Cerimônia 2" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                {/* SUBSTITUIR: foto cerimônia 3 */}
-                <img src="https://picsum.photos/500/500?random=65" alt="Cerimônia 3" className="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </div>
-            {/* Texto — direita */}
-            <div className="reveal reveal-delay-2 flex flex-col gap-7">
-              <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-                A cerimônia valoriza o caminho da noiva com um eixo central marcado e elementos suspensos
-                que criam movimento e leveza.
-              </p>
-              <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-                O arco floral assimétrico finaliza o percurso com elegância e personalidade.
-              </p>
-              <div>
-                <p className="font-sans text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: "#8B5E3C" }}>
-                  Elementos principais
-                </p>
-                <ul className="space-y-3">
-                  {elementosCerimonia.map((el) => (
-                    <li key={el} className="flex items-start gap-3">
-                      <span className="shrink-0 w-1.5 h-1.5 rounded-full mt-2" style={{ backgroundColor: "#C0392B" }} />
-                      <span className="font-sans text-sm" style={{ color: "#374151" }}>{el}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="rounded-xl p-5" style={{ backgroundColor: "#F8F7F4", borderLeft: "3px solid #3D7A1A" }}>
-                <p className="font-sans text-[10px] tracking-widest uppercase mb-2" style={{ color: "#3D7A1A" }}>Altar</p>
-                <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
-                  O arco floral se desenvolve a partir do lado esquerdo, com um movimento ascendente leve
-                  e orgânico. O uso de urucum adiciona toque de cor e personalidade.
-                </p>
-              </div>
-            </div>
+          <div className="reveal rounded-2xl overflow-hidden">
+            <img src={cerimoniaImg} alt="Cerimônia" className="w-full h-auto object-cover" loading="lazy" />
           </div>
         </div>
       </SectionWrap>
