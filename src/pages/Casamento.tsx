@@ -2,6 +2,11 @@ import { useEffect } from "react";
 import { useReveal } from "../hooks/useScrollAnimation";
 import cerimoniaFoto1 from "@/assets/cerimonia-1.png";
 import cerimoniaFoto2 from "@/assets/cerimonia-2.png";
+import recepcaoFoto1 from "@/assets/recepcao-1.png";
+import recepcaoFoto2 from "@/assets/recepcao-2.png";
+import recepcaoFoto3 from "@/assets/recepcao-3.png";
+import recepcaoFoto4 from "@/assets/recepcao-4.png";
+import recepcaoFoto5 from "@/assets/recepcao-5.png";
 
 // EDITAR: nome dos noivos e data do evento
 const NOIVOS      = "Gabriella Tereza & Tales Augusto";
@@ -240,16 +245,19 @@ export default function Casamento() {
             {/* Fotos — direita */}
             <div className="reveal reveal-delay-2 grid grid-cols-2 gap-3">
               <div className="col-span-2 rounded-2xl overflow-hidden aspect-[16/9]">
-                {/* SUBSTITUIR: foto recepção 1 */}
-                <img src="https://picsum.photos/900/500?random=66" alt="Recepção 1" className="w-full h-full object-cover" loading="lazy" />
+                <img src={recepcaoFoto1} alt="Mesa de doces e bolo com decoração natural" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="rounded-xl overflow-hidden aspect-[3/4]">
+                <img src={recepcaoFoto2} alt="Castiçal com velas e arranjo floral" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="rounded-xl overflow-hidden aspect-[3/4]">
+                <img src={recepcaoFoto4} alt="Arranjo floral em vaso dourado" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                {/* SUBSTITUIR: foto recepção 2 */}
-                <img src="https://picsum.photos/500/500?random=67" alt="Recepção 2" className="w-full h-full object-cover" loading="lazy" />
+                <img src={recepcaoFoto3} alt="Mesa redonda com centro floral e velas" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="rounded-xl overflow-hidden aspect-[1/1]">
-                {/* SUBSTITUIR: foto recepção 3 */}
-                <img src="https://picsum.photos/500/500?random=68" alt="Recepção 3" className="w-full h-full object-cover" loading="lazy" />
+                <img src={recepcaoFoto5} alt="Estação de bem-casados com flores" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>
