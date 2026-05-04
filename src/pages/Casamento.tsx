@@ -216,45 +216,26 @@ export default function Casamento() {
       </SectionWrap>
 
       {/* ── RECEPÇÃO ── */}
-      {/*
-        Layout pensado para os noivos:
-        1. Cabeçalho com intro emocional
-        2. Foto destaque full-width (mesa de doces / bolo)
-        3. Grade editorial: texto + elementos à esq., galeria à dir.
-        4. Fechamento com recepcao-5 como detalhe atmosférico
-      */}
       <SectionWrap id="recepcao" className="py-24 relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-80 h-80 blob-2 opacity-30 pointer-events-none" style={{ backgroundColor: "#E8DDD4", transform: "translate(25%,25%)" }} />
-        <div className="max-w-6xl mx-auto flex flex-col gap-14">
+        <div className="max-w-6xl mx-auto flex flex-col gap-16">
 
-          {/* Cabeçalho da seção */}
-          <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
-            <div>
-              <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Projeto</p>
+          {/* Cabeçalho */}
+          <div className="reveal">
+            <p className="font-sans text-xs tracking-[0.32em] uppercase mb-3" style={{ color: "#8B5E3C" }}>Projeto</p>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
               <h2 className="font-serif text-4xl sm:text-5xl leading-tight" style={{ color: "#1A1A1A" }}>Recepção</h2>
+              <p className="font-cormorant text-xl italic lg:max-w-sm" style={{ color: "#2D5016" }}>
+                "Um ambiente que envolve, acolhe e permanece na memória de cada convidado."
+              </p>
             </div>
-            <p className="font-cormorant text-2xl italic leading-snug" style={{ color: "#2D5016" }}>
-              "Um ambiente que envolve, acolhe e permanece na memória de cada convidado."
-            </p>
           </div>
 
-          {/* Foto destaque — wide */}
-          <div style={{ aspectRatio: "21/9", minHeight: "220px" }}>
-            <ZoomableImage
-              src={recepcaoFoto1}
-              alt="Vista geral da recepção — decoração completa"
-              className="rounded-3xl w-full h-full"
-            />
-          </div>
-          <p className="font-sans text-xs text-center tracking-wide" style={{ color: "#6B7280" }}>
-            Mesa de doces &amp; bolo · decoração com elementos naturais
-          </p>
+          {/* Bloco 1 — texto esq / galeria dir */}
+          <div className="reveal grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
-          {/* Corpo principal: texto esq / galeria dir */}
-          <div className="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-            {/* Coluna de texto + elementos */}
-            <div className="lg:col-span-4 flex flex-col gap-6">
+            {/* Esquerda: texto + elementos + card */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
               <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
                 A recepção integra iluminação quente, vegetação viva e uma composição cuidadosa
                 de materiais que criam um ambiente íntimo e sofisticado.
@@ -264,7 +245,6 @@ export default function Casamento() {
                 elaborados, velas e texturas naturais que dialogam com o entorno do La Nature.
               </p>
 
-              {/* Lista de elementos */}
               <div>
                 <p className="font-sans text-[10px] tracking-[0.35em] uppercase mb-4" style={{ color: "#8B5E3C" }}>
                   Elementos da decoração
@@ -279,7 +259,6 @@ export default function Casamento() {
                 </ul>
               </div>
 
-              {/* Card atmosfera */}
               <div className="rounded-xl p-5" style={{ backgroundColor: "#fff", borderLeft: "3px solid #8B5E3C" }}>
                 <p className="font-sans text-[10px] tracking-widest uppercase mb-2" style={{ color: "#8B5E3C" }}>Atmosfera</p>
                 <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
@@ -289,51 +268,59 @@ export default function Casamento() {
               </div>
             </div>
 
-            {/* Galeria editorial — coluna direita */}
-            <div className="lg:col-span-8 grid grid-cols-2 gap-4">
-              {/* Foto tall — recepcao-2 ocupa duas linhas */}
-              <div className="row-span-2" style={{ minHeight: "340px" }}>
+            {/* Direita: foto grande + duas menores */}
+            <div className="lg:col-span-7 flex flex-col gap-4">
+              <ZoomableImage
+                src={recepcaoFoto1}
+                alt="Vista geral da recepção — decoração completa"
+                className="rounded-2xl w-full aspect-[16/10]"
+              />
+              <div className="grid grid-cols-2 gap-4">
                 <ZoomableImage
                   src={recepcaoFoto2}
                   alt="Castiçal com velas e arranjo floral"
-                  className="rounded-2xl w-full h-full"
+                  className="rounded-2xl w-full aspect-[4/3]"
+                />
+                <ZoomableImage
+                  src={recepcaoFoto3}
+                  alt="Mesa redonda com centro floral e velas"
+                  className="rounded-2xl w-full aspect-[4/3]"
                 />
               </div>
-              {/* Foto recepcao-3 */}
-              <ZoomableImage
-                src={recepcaoFoto3}
-                alt="Mesa redonda com centro floral e velas"
-                className="rounded-2xl aspect-[4/3]"
-              />
-              {/* Foto recepcao-4 */}
-              <ZoomableImage
-                src={recepcaoFoto4}
-                alt="Arranjo floral em vaso com folhagens"
-                className="rounded-2xl aspect-[4/3]"
-              />
             </div>
           </div>
 
-          {/* Foto final — detalhe atmosférico */}
-          <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-            <ZoomableImage
-              src={recepcaoFoto5}
-              alt="Estação de bem-casados com flores silvestres"
-              className="rounded-2xl aspect-[4/3] w-full"
-            />
-            <div className="flex flex-col gap-4 lg:pl-6">
+          {/* Bloco 2 — texto esq / fotos dir */}
+          <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+            {/* Esquerda: citação de fechamento */}
+            <div className="flex flex-col gap-4">
               <p className="font-sans text-[10px] tracking-[0.35em] uppercase" style={{ color: "#8B5E3C" }}>
                 Detalhes que fazem a diferença
               </p>
               <p className="font-cormorant text-2xl sm:text-3xl italic leading-snug" style={{ color: "#2D5016" }}>
-                "São os pequenos gestos — o arranjo ao lado do bolo, o aroma das flores, a luz
-                baixa nas mesas — que os convidados vão levar para sempre."
+                "São os pequenos gestos — o arranjo ao lado do bolo, o aroma das flores,
+                a luz baixa nas mesas — que os convidados vão levar para sempre."
               </p>
               <div className="w-10 h-px" style={{ backgroundColor: "#E8DDD4" }} />
-              <p className="font-sans text-xs leading-relaxed" style={{ color: "#6B7280" }}>
+              <p className="font-sans text-sm leading-relaxed" style={{ color: "#6B7280" }}>
                 Cada detalhe da estação de doces e bem-casados foi pensado para ser fotografado
                 e lembrado — como uma extensão do cuidado que permeia todo o evento.
               </p>
+            </div>
+
+            {/* Direita: duas fotos lado a lado */}
+            <div className="grid grid-cols-2 gap-4">
+              <ZoomableImage
+                src={recepcaoFoto4}
+                alt="Arranjo floral em vaso com folhagens"
+                className="rounded-2xl w-full aspect-[4/3]"
+              />
+              <ZoomableImage
+                src={recepcaoFoto5}
+                alt="Estação de bem-casados com flores silvestres"
+                className="rounded-2xl w-full aspect-[4/3]"
+              />
             </div>
           </div>
 
