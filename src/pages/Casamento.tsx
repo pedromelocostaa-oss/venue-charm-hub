@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useReveal } from "../hooks/useScrollAnimation";
+import cerimoniaCover from "@/assets/cerimonia-cover.jpg";
 
 // EDITAR: nome dos noivos e data do evento
 const NOIVOS      = "Gabriella Tereza & Tales Augusto";
